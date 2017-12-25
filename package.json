@@ -19,5 +19,8 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
   }
 }
