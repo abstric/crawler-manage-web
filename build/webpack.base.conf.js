@@ -9,16 +9,16 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
-})
+// const createLintingRule = () => ({
+//   test: /\.(js|vue)$/,
+//   loader: 'eslint-loader',
+//   enforce: 'pre',
+//   include: [resolve('src'), resolve('test')],
+//   options: {
+//     formatter: require('eslint-friendly-formatter'),
+//     emitWarning: !config.dev.showEslintErrorsInOverlay
+//   }
+// })
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -32,13 +32,6 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-    }
-  },
   plugins: [
     new webpack.ProvidePlugin({
       $:"jquery",
@@ -46,11 +39,16 @@ module.exports = {
       "windows.jQuery":"jquery"
     })
   ],
-  alias: {
-    'vue$': 'vue/dist/vue.esm.js',
-    '@': resolve('src'),
-    'assets': path.resolve(__dirname, '../src/assets'),
-    'jquery': "jquery/src/jquery"
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.common.js',
+      '@': resolve('src'),
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components'),
+      // 2. 定义别名和插件位置
+      'jquery': 'jquery'
+    },
   },
   module: {
     rules: [

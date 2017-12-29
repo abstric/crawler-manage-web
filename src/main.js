@@ -7,7 +7,13 @@ import $ from 'jquery'
 import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.min'
 
+import header from './components/commons/header'
+import Loading from './components/commons/loading'
+
 Vue.config.productionTip = false
+
+Vue.use(header)
+Vue.use(Loading)
 
 /* eslint-disable no-new */
 new Vue({
