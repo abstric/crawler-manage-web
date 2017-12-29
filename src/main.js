@@ -7,7 +7,12 @@ import $ from 'jquery'
 import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.min'
 
+//引入插件
+import Header from './components/commons/header'
+
 Vue.config.productionTip = false
+
+Vue.use(Header)
 
 /* eslint-disable no-new */
 new Vue({
